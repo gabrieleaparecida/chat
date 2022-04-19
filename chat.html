@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento on-line</title>
+    <link rel="stylesheet" href="stylechat.css">
+</head>
+<body>
+    <div id="page">
+        <header>
+            <h1>ATENDIMENTO ON-LINE</h1>
+        </header>
+        <form>
+            <div id="chat">
+            <div class="atd" >
+                <div class="text">                    
+                        <label>Atendente diz:</label>
+                </div>
+                <div class="msg">
+                    <label>banana</label>
+                </div>
+                <div class="text">
+                        <label>Atendente diz:</label>
+                </div>
+                <div class="msg">
+                    <label>bananaa</label>
+                </div>
+            </div>
+            <div class="vc" id="vc-chat">
+                <div class="text">
+                        <label>Você diz:</label>
+                </div>
+                <div class="msg">
+                    <label>banana</label>
+                </div>
+                <div class="text">
+                        <label>Você diz:</label>
+                </div>
+                <div class="msg">
+                    <label>banana</label>
+                </div>
+            </div>
+        </div>
+        </form>
+        <footer >
+            <input id="footerinput" type="text" name="mensagem" placeholder="Digite aqui sua mensagem"  />
+            <button id="footerbutton" type="submit" onclick="sendMessage()">Enviar</button>
+        </footer>
+    </div>
+
+
+    <script>
+        function sendMessage () {
+        const message = readInputMessage()
+       const chatp = document.getElementById('chat')
+        const vcc = createMessageElement(message)
+ 
+        clearInput()
+    }
+    
+    function readInputMessage () {
+        const message = document.getElementById('footerinput').value
+        return message
+    }
+    
+    function clearInput () {
+        document.getElementById('footerinput').value = ''
+    }
+    
+    function createMessageElement (message) {
+        const vcc = document.getElementById('vc-chat')
+
+        const textt = document.createElement('div')
+        const msgg = document.createElement('div')
+    
+        textt.classList.add('text')
+        msgg.classList.add('msg')
+    
+        textt.innerHTML = 'Você diz:'
+        msgg.innerHTML = message
+
+        vcc.appendChild(textt)
+        vcc.appendChild(msgg)
+    }
+    </script>
+</body>
+</html>
